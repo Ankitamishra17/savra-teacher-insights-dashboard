@@ -26,7 +26,7 @@ const Dashboard = () => {
   return (
     <MainLayout>
       {/* Page Title */}
-      <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+      <h2 className="text-3xl font-semibold text-black mb-8">
         Admin Companion
       </h2>
 
@@ -56,7 +56,7 @@ const Dashboard = () => {
 
       {/* Weekly Chart Section */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-10">
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">
+        <h3 className="text-xl font-semibold text-black mb-6">
           Weekly Activity
         </h3>
 
