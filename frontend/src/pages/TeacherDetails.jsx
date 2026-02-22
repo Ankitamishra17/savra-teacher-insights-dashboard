@@ -20,9 +20,9 @@ const TeacherDetails = () => {
   const fetchAllData = async () => {
     setLoading(true);
     try {
-      const activityRes = await API.get(`/teachers/${id}?range=${range}`);
+      const activityRes = await API.get(`/api/teachers/${id}?range=${range}`);
 
-      const breakdownRes = await API.get(`/teachers/${id}/breakdown`);
+      const breakdownRes = await API.get(`/api/teachers/${id}/breakdown`);
 
       setActivityData(activityRes.data);
       setBreakdownData(breakdownRes.data);

@@ -10,12 +10,12 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Fetch summary data
-    API.get("/teachers/summary").then((res) => {
+    API.get("/api/teachers/summary").then((res) => {
       setSummaryData(res.data);
     });
 
     // Fetch weekly activity data
-    API.get("/teachers/weekly").then((res) => {
+    API.get("/api/teachers/weekly").then((res) => {
       setWeeklyData(res.data);
     });
   }, []);
