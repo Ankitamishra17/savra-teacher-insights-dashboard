@@ -9,33 +9,38 @@ const TeacherCard = ({ teacher }) => {
     Number(teacher.assessments);
 
   return (
-    <div
-      onClick={() => navigate(`/teacher/${teacher.teacher_id}`)}
-      className="bg-white rounded-xl shadow-md p-6 cursor-pointer 
-                 hover:shadow-xl transition duration-300 border border-gray-100"
-    >
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+      <div
+        onClick={() => navigate(`/teacher/${teacher.teacher_id}`)}
+        className="bg-[#1a1a22] rounded-xl p-6 cursor-pointer 
+                  border border-red-900/20
+                  shadow-lg hover:shadow-red-900/30
+                  hover:scale-105 transition-all duration-300"
+      >
+      {/* Teacher Name */}
+      <h3 className="text-xl font-semibold text-red-400 mb-4">
         {teacher.teacher_name}
       </h3>
 
+      {/* Stats */}
       <div className="grid grid-cols-3 gap-4 text-center mb-4">
-        <Stat label="Lessons" value={teacher.lessons} color="text-blue-600" />
-        <Stat label="Quizzes" value={teacher.quizzes} color="text-green-600" />
-        <Stat label="Assessments" value={teacher.assessments} color="text-purple-600" />
+        <Stat label="Lessons" value={teacher.lessons} />
+        <Stat label="Quizzes" value={teacher.quizzes} />
+        <Stat label="Assessments" value={teacher.assessments} />
       </div>
 
-      <div className="border-t pt-4 text-center">
-        <p className="text-gray-500 text-sm">Total Activities</p>
-        <p className="text-2xl font-bold text-gray-800">{total}</p>
+      {/* Total Section */}
+      <div className="border-t border-red-900/20 pt-4 text-center">
+        <p className="text-gray-400 text-sm">Total Activities</p>
+        <p className="text-2xl font-bold text-white">{total}</p>
       </div>
     </div>
   );
 };
 
-const Stat = ({ label, value, color }) => (
+const Stat = ({ label, value }) => (
   <div>
     <p className="text-gray-500 text-sm">{label}</p>
-    <p className={`text-lg font-bold ${color}`}>{value}</p>
+    <p className="text-lg font-bold text-red-400">{value}</p>
   </div>
 );
 

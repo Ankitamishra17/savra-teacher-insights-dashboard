@@ -25,59 +25,48 @@ const Dashboard = () => {
   return (
     <MainLayout>
       {/* Page Title */}
-      <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+      <h2 className="text-3xl font-semibold text-red-400 mb-8">
         Admin Companion
       </h2>
 
-      {/* Gradient Cards */}
+      {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        <SoftCard
-          title="Teachers"
-          value={summaryData.length}
-          gradient="from-blue-500 to-indigo-600"
-          Icon={Users}
-        />
-
-        <SoftCard
+        <Card title="Teachers" value={summaryData.length} Icon={Users} />
+        <Card
           title="Lessons"
           value={sum(summaryData, "lessons")}
-          gradient="from-emerald-500 to-teal-600"
           Icon={BookOpen}
         />
-
-        <SoftCard
+        <Card
           title="Quizzes"
           value={sum(summaryData, "quizzes")}
-          gradient="from-pink-500 to-rose-600"
           Icon={ClipboardList}
         />
-
-        <SoftCard
+        <Card
           title="Assessments"
           value={sum(summaryData, "assessments")}
-          gradient="from-orange-400 to-orange-600"
           Icon={FileCheck}
         />
       </div>
 
       {/* Weekly Chart Section */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-10">
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">
+      <div className="bg-[#14141a] rounded-2xl shadow-lg border border-red-900/20 p-8 mb-10">
+        <h3 className="text-xl font-semibold text-red-400 mb-6">
           Weekly Activity
         </h3>
 
         {weeklyData.length > 0 ? (
           <ActivityChart data={weeklyData} />
         ) : (
-          <div className="h-72 flex items-center justify-center text-gray-400">
+          <div className="h-72 flex items-center justify-center text-gray-500">
             No activity data available
           </div>
         )}
       </div>
 
-      {/* Teacher Cards */}
+      {/* Teacher Cards Section */}
       <div>
-        <h3 className="text-xl font-semibold text-gray-800 mb-6">
+        <h3 className="text-xl font-semibold text-red-400 mb-6">
           Teachers Overview
         </h3>
 
@@ -91,34 +80,29 @@ const Dashboard = () => {
   );
 };
 
-/* ===================== */
-/* Soft Gradient Card */
-/* ===================== */
-
-const SoftCard = ({ title, value, gradient, Icon }) => {
+const Card = ({ title, value, Icon }) => {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl p-6 text-white
-      bg-gradient-to-r ${gradient}
-      shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
+      className="relative overflow-hidden rounded-2xl p-6
+      bg-[#1a1a22] border border-red-900/20
+      shadow-lg hover:shadow-red-900/30
+      transition-all duration-300 hover:scale-105"
     >
       <div className="flex items-center justify-between">
-
-        {/* Left Icon */}
-        <div className="bg-white/20 p-3 rounded-xl backdrop-blur-md">
-          {Icon && <Icon size={26} className="text-white opacity-90" />}
+        {/* Icon */}
+        <div className="bg-red-900/30 p-3 rounded-xl">
+          {Icon && <Icon size={26} className="text-red-400" />}
         </div>
 
-        {/* Right Content */}
+        {/* Content */}
         <div className="text-right">
-          <p className="text-sm opacity-90 tracking-wide">{title}</p>
-          <p className="text-3xl font-bold">{value}</p>
+          <p className="text-sm text-gray-400 tracking-wide">{title}</p>
+          <p className="text-3xl font-bold text-white">{value}</p>
         </div>
-
       </div>
 
-      {/* Decorative Glow */}
-      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-3xl"></div>
+      {/* Glow Effect */}
+      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-red-600/20 rounded-full blur-3xl"></div>
     </div>
   );
 };
